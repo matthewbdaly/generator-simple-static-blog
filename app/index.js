@@ -44,7 +44,13 @@ var TeslaGenerator = yeoman.generators.Base.extend({
         {
             type: 'input',
             name: 'url',
-            message: 'Please enter the URL where the blog will be hosted',
+            message: 'Please enter the full URL where the blog will be hosted',
+            default: 'http://example.com/'
+        },
+        {
+            type: 'input',
+            name: 'domainname',
+            message: 'Please enter the domain name where the blog will be hosted',
             default: 'example.com'
         },
         {
@@ -68,6 +74,7 @@ var TeslaGenerator = yeoman.generators.Base.extend({
             this.disqus = props.disqus;
             this.facebookcomments = props.facebookcomments;
             this.email = props.email;
+            this.domainname = props.domainname;
 
             // Existing config
             this.www = 'www';
@@ -88,6 +95,7 @@ var TeslaGenerator = yeoman.generators.Base.extend({
             this.src.copy('_bowerrc', '.bowerrc');
             this.template('_Gruntfile.js', 'Gruntfile.js');
             this.template('_package.json', 'package.json');
+            this.template('_CNAME', 'CNAME');
 
             // Underscore template
             this.src.copy('archive.us', 'app/templates/archive.us');
