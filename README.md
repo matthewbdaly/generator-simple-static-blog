@@ -1,4 +1,4 @@
-# generator-simple-static-blog [![Build Status](https://secure.travis-ci.org/matthewbdaly/generator-simple-static-blog.png?branch=master)](https://travis-ci.org/matthewbdaly/generator-simple-static-blog)
+# generator-simple-static-blog 
 
 > [Yeoman](http://yeoman.io) generator for creating a simple static blog
 
