@@ -8,10 +8,10 @@
 To install generator-simple-static-blog from npm, run:
 
 ```bash
-npm install -g generator-simple-static-blog
+sudo npm install -g generator-simple-static-blog
 ```
 
-Finally, initiate the generator:
+Then, run the generator:
 
 ```bash
 yo simple-static-blog

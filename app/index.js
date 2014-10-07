@@ -14,7 +14,7 @@ var TeslaGenerator = yeoman.generators.Base.extend({
 
         // Have Yeoman greet the user.
         this.log(yosay(
-                    'Welcome to the Tesla blog generator!'
+            'Welcome to the simple static blog generator!'
         ));
 
         var prompts = [{
