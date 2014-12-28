@@ -18,11 +18,11 @@ module.exports = function (grunt) {
                 }
             }
         },
-        markdown: {
+        blogbuilder: {
+          default_options: {
             options: {
+              data: {
                 author: "<%= author %>",
-                title: "<%= title %>",
-                description: "<%= description %>",
                 url: "<%= url %>",
                 <% if(facebookcomments) { %>
                 facebookcomments: "<%= facebookcomments %>",
@@ -30,34 +30,29 @@ module.exports = function (grunt) {
                 <% if(disqus) { %>
                 disqus: "<%= disqus %>",
                 <% } %>
-                rssCount: 10,
-                dateFormat: "Do MMMM YYYY",
-                layouts: {
-                    wrapper: "app/templates/wrapper.us",
-                    index: "app/templates/index.us",
-                    post: "app/templates/post.us",
-                    page: "app/templates/page.us",
-                    archive: "app/templates/archive.us"
-                },
-                paths: {
-                    posts: "content/posts/*.md",
-                    pages: "content/pages/*.md",
-                    index: "index.html",
-                    archive: "archive.html",
-                    rss: "rss.xml"
-                },
-                pathRoots: {
-                    posts: "posts",
-                    pages: ""
-                }
+                title: "<%= title %>",
+                description: "<%= description %>"
+              },
+              template: {
+                post: 'app/templates/post.hbs',
+                page: 'app/templates/page.hbs',
+                index: 'app/templates/index.hbs',
+                header: 'app/templates/partials/header.hbs',
+                footer: 'app/templates/partials/footer.hbs',
+                archive: 'app/templates/archive.hbs'
+              },
+              src: {
+                posts: 'content/posts/',
+                pages: 'content/pages/'
+              },
+              www: {
+                dest: 'build'
+              }
             },
-            www: {
-                dest: "<%= build %>",
-                context: {
-                    js: "/static/js/dependencies.js",
-                    css: "/static/css/all.css"
-                }
+            files: {
+              'tmp/default_options': ['test/fixtures/testing', 'test/fixtures/123']
             }
+          }
         },
         copy: {
             html: {
@@ -124,7 +119,7 @@ module.exports = function (grunt) {
     });
 
     // Load tasks
-    grunt.loadNpmTasks('grunt-markdown-blog');
+    grunt.loadNpmTasks('grunt-blogbuilder');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-watch');
@@ -136,7 +131,7 @@ module.exports = function (grunt) {
     grunt.registerTask('default', [
         'clean',
         'bower_concat',
-        'markdown',
+        'blogbuilder',
         'copy'
     ]);
     grunt.registerTask('serve', [

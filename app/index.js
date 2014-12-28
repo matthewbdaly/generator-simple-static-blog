@@ -89,6 +89,7 @@ var TeslaGenerator = yeoman.generators.Base.extend({
         app: function () {
             this.dest.mkdir('app');
             this.dest.mkdir('app/templates');
+            this.dest.mkdir('app/templates/partials');
 
             // Config files
             this.src.copy('_bower.json', 'bower.json');
@@ -98,11 +99,12 @@ var TeslaGenerator = yeoman.generators.Base.extend({
             this.template('_CNAME', 'CNAME');
 
             // Underscore template
-            this.src.copy('archive.us', 'app/templates/archive.us');
-            this.src.copy('index.us', 'app/templates/index.us');
-            this.src.copy('page.us', 'app/templates/page.us');
-            this.src.copy('post.us', 'app/templates/post.us');
-            this.src.copy('wrapper.us', 'app/templates/wrapper.us');
+            this.src.copy('archive.hbs', 'app/templates/archive.hbs');
+            this.src.copy('index.hbs', 'app/templates/index.hbs');
+            this.src.copy('page.hbs', 'app/templates/page.hbs');
+            this.src.copy('post.hbs', 'app/templates/post.hbs');
+            this.src.copy('partials/header.hbs', 'app/templates/partials/header.hbs');
+            this.src.copy('partials/footer.hbs', 'app/templates/partials/footer.hbs');
 
             // Content folders
             this.dest.mkdir('content');

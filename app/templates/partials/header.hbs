@@ -8,32 +8,18 @@
         <link rel="stylesheet" type="text/css" href="/static/bower_components/bootstrap-sass/dist/css/bootstrap.min.css" media="all" />
         <link rel="stylesheet" type="text/css" href="/static/bower_components/flat-ui/dist/css/flat-ui.min.css" media="all" />
         <link rel="stylesheet" type="text/css" href="/static/bower_components/highlightjs/styles/zenburn.css" media="all" />
-        <link rel="alternate" type="application/rss+xml" title="<%= site.title %> - feed" href="/rss.xml" />
-        <title><%= site.title %><%= post ? ' - '+post.title() : '' %></title>
+        <link rel="alternate" type="application/rss+xml" title="{{ data.title }}- feed" href="/index.xml" />
+        <title>{{ meta.title }} - {{ data.title }}</title>
     </head>
     <body>
         <header>
             <div class="container">
                 <div class="page-header">
-                    <h1><%= site.title %></h1>
-                    <h2><%= site.description %></h2>
+                    <h1>{{ data.title }}</h1>
+                    <h2>{{ data.description }}</h2>
                     <nav>
-                        <a href="/">Home</a> | <a href="/archive.html">Archives</a> | <a href="/about.html">About</a> | <a href="/rss.xml">RSS</a>
+                        <a href="/">Home</a> | <a href="/archive/">Archives</a> | <a href="/about/">About</a> | <a href="/rss.xml">RSS</a>
                     </nav>
                 </div>
             </div>
         </header>
-
-        <div class="container">
-            <%= yield %>
-        </div>
-
-        <footer>
-            <div class="container">
-                Copyright <%= site.author %>, <%= new Date().getFullYear() %>.
-            </div>
-        </footer>
-        <script type="text/javascript" src="<%= js %>"></script>
-        <script>hljs.initHighlightingOnLoad();</script>
-    </body>
-</html>
