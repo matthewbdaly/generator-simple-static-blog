@@ -17,6 +17,6 @@
     "grunt-contrib-copy": "^0.6.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-gh-pages": "^0.9.1",
-    "grunt-blogbuilder": "0.0.3"
+    "grunt-blogbuilder": "0.0.4"
   }
 }
