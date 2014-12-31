@@ -83,8 +83,8 @@ module.exports = function (grunt) {
             scripts: {
                 files: [
                     'app/templates/*.us',
-                    '<%= src.posts %>/*.md',
-                    '<%= src.pages %>/*.md'
+                    'content/pages/*.md',
+                    'content/posts/*.md'
                 ],
                 tasks: ['default'],
                 options: {
