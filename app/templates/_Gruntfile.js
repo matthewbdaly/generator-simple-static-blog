@@ -82,9 +82,12 @@ module.exports = function (grunt) {
         watch: {
             scripts: {
                 files: [
-                    'app/templates/*.us',
+                    'app/templates/*.hbs',
+                    'app/templates/partials/*.hbs',
                     'content/pages/*.md',
-                    'content/posts/*.md'
+                    'content/pages/*.markdown',
+                    'content/posts/*.md',
+                    'content/posts/*.markdown'
                 ],
                 tasks: ['default'],
                 options: {
