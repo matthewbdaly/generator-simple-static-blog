@@ -1,6 +1,6 @@
 {
   "name": "generator-simple-static-blog",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "Yeoman generator for generating a static blog",
   "license": "MIT",
   "main": "app/index.js",
