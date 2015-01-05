@@ -11,7 +11,7 @@ module.exports = function (grunt) {
             all: {
                 dest: '<%= static_files %>/js/dependencies.js',
                 dependencies: {
-                    'bootstrap-sass': 'jquery'
+                    'bootstrap-sass-official': 'jquery'
                 },
                 bowerOptions: {
                     relative: false
