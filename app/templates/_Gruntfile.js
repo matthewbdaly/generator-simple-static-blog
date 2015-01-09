@@ -39,7 +39,8 @@ module.exports = function (grunt) {
                 index: 'app/templates/index.hbs',
                 header: 'app/templates/partials/header.hbs',
                 footer: 'app/templates/partials/footer.hbs',
-                archive: 'app/templates/archive.hbs'
+                archive: 'app/templates/archive.hbs',
+                notfound: 'app/templates/404.hbs'
               },
               src: {
                 posts: 'content/posts/',
@@ -113,6 +114,17 @@ module.exports = function (grunt) {
                 livereload: true
             }
         },
+        sitemap: {
+            dist: {
+                siteRoot: 'build/',
+                pattern: [
+                    'build/index.html',
+                    'build/**/*.html',
+                    'build/**/rss.xml'
+                ],
+                homepage: '<%= url %>'
+            }
+        },
         'gh-pages': {
             options: {
                 base: 'www'
@@ -129,12 +141,14 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-bower-concat');
     grunt.loadNpmTasks('grunt-gh-pages');
+    grunt.loadNpmTasks('grunt-sitemap');
 
     // Register tasks
     grunt.registerTask('default', [
         'clean',
         'bower_concat',
         'blogbuilder',
+        'sitemap',
         'copy'
     ]);
     grunt.registerTask('serve', [

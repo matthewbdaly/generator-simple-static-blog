@@ -100,6 +100,7 @@ var TeslaGenerator = yeoman.generators.Base.extend({
 
             // Underscore template
             this.src.copy('archive.hbs', 'app/templates/archive.hbs');
+            this.src.copy('404.hbs', 'app/templates/404.hbs');
             this.src.copy('index.hbs', 'app/templates/index.hbs');
             this.src.copy('page.hbs', 'app/templates/page.hbs');
             this.src.copy('post.hbs', 'app/templates/post.hbs');
