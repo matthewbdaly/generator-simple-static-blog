@@ -57,7 +57,7 @@ var TeslaGenerator = yeoman.generators.Base.extend({
             type: 'input',
             name: 'googleanalytics',
             message: 'Please enter your Google Analytics site ID',
-            default: false
+            default: 'UA-XXXXX-X'
         },
         {
             type: 'input',
