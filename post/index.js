@@ -3,6 +3,7 @@ var util = require('util');
 var path = require('path');
 var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
+var moment = require('moment');
 
 var PostGenerator = yeoman.generators.Base.extend({
     initializing: function () {
@@ -26,7 +27,7 @@ var PostGenerator = yeoman.generators.Base.extend({
 
         this.prompt(prompts, function (props) {
             this.title = props.title;
-            this.date = new Date();
+            this.date = moment();
 
             done();
         }.bind(this));
