@@ -24,6 +24,7 @@ module.exports = function (grunt) {
               data: {
                 author: "<%= author %>",
                 url: "<%= url %>",
+                googleanalytics: "<%= googleanalytics %>",
                 <% if(facebookcomments) { %>
                 facebookcomments: "<%= facebookcomments %>",
                 <% } %>

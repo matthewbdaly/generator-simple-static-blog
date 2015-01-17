@@ -55,6 +55,12 @@ var TeslaGenerator = yeoman.generators.Base.extend({
         },
         {
             type: 'input',
+            name: 'googleanalytics',
+            message: 'Please enter your Google Analytics site ID',
+            default: false
+        },
+        {
+            type: 'input',
             name: 'disqus',
             message: 'If you wish to use Disqus for comments, please enter your Disqus username. Otherwise, please press enter',
             default: false
@@ -75,6 +81,7 @@ var TeslaGenerator = yeoman.generators.Base.extend({
             this.facebookcomments = props.facebookcomments;
             this.email = props.email;
             this.domainname = props.domainname;
+            this.googleanalytics = props.googleanalytics;
 
             // Existing config
             this.www = 'www';
