@@ -120,6 +120,7 @@ var TeslaGenerator = yeoman.generators.Base.extend({
 
             // Content folders
             this.dest.mkdir('content');
+            this.dest.mkdir('content/images');
             this.dest.mkdir('content/posts');
             this.dest.mkdir('content/pages');
         },

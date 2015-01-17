@@ -89,6 +89,14 @@ module.exports = function (grunt) {
                 ],
                 dest: '<%= www %>/static/js/'
             },
+            img: {
+                cwd: 'content/',
+                expand: true,
+                src: [
+                    'images/**'
+                ],
+                dest: '<%= www %>/static/'
+            },
             cname: {
                 src: 'CNAME',
                 dest: '<%= www %>/'
