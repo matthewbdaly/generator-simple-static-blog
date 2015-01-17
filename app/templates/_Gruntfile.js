@@ -9,7 +9,7 @@ module.exports = function (grunt) {
         },
         bower_concat: {
             all: {
-                dest: '<%= static_files %>/js/dependencies.js',
+                dest: 'build/dependencies.js',
                 dependencies: {
                     'bootstrap-sass-official': 'jquery'
                 },
@@ -123,6 +123,12 @@ module.exports = function (grunt) {
                 }
             }
         },
+        uglify: {
+            dist: {
+                src: 'build/dependencies.js',
+                dest: 'static/js/dependencies.min.js'
+            }
+        },
         sitemap: {
             dist: {
                 siteRoot: 'build/',
@@ -149,6 +155,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-compass');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-bower-concat');
     grunt.loadNpmTasks('grunt-gh-pages');
     grunt.loadNpmTasks('grunt-sitemap');
@@ -160,6 +167,7 @@ module.exports = function (grunt) {
         'blogbuilder',
         'sitemap',
         'compass',
+        'uglify',
         'copy'
     ]);
     grunt.registerTask('serve', [
