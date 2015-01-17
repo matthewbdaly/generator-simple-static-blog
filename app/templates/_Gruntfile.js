@@ -59,18 +59,35 @@ module.exports = function (grunt) {
         copy: {
             html: {
                 expand: true,
-                cwd: '<%= build%>/',
+                cwd: '<%= build %>/',
                 src: [
-                    '**'
+                    '**/*.html'
                 ],
                 dest: '<%= www %>/'
             },
             static_assets: {
                 expand: true,
+                cwd: 'static/',
                 src: [
-                    'static/**'
+                    'bower_components/**'
                 ],
-                dest: '<%= www %>/'
+                dest: '<%= www %>/static/'
+            },
+            css: {
+                expand: true,
+                cwd: '<%= build %>/css/',
+                src: [
+                    'style.min.css'
+                ],
+                dest: '<%= www %>/static/css/'
+            },
+            js: {
+                cwd: '<%= build %>/js/',
+                expand: true,
+                src: [
+                    'dependencies.min.js'
+                ],
+                dest: '<%= www %>/static/js/'
             },
             cname: {
                 src: 'CNAME',
@@ -79,7 +96,7 @@ module.exports = function (grunt) {
         },
         clean: [
             '<%= www %>',
-            '<%=build%>'
+            '<%= build %>'
         ],
         watch: {
             scripts: {
@@ -119,14 +136,29 @@ module.exports = function (grunt) {
             dist: {
                 options: {
                     sassDir: 'app/sass',
-                    cssDir: 'static/css'
+                    cssDir: 'build/css'
                 }
+            }
+        },
+        concat: {
+            dist: {
+                src: [
+                    'static/bower_components/highlightjs/styles/rainbow.css',
+                    'build/css/style.css'
+                ],
+                dest: 'build/css/output.css'
+            }
+        },
+        cssmin: {
+            dist: {
+                src: 'build/css/output.css',
+                dest: 'build/css/style.min.css'
             }
         },
         uglify: {
             dist: {
                 src: 'build/dependencies.js',
-                dest: 'static/js/dependencies.min.js'
+                dest: 'build/js/dependencies.min.js'
             }
         },
         sitemap: {
@@ -155,6 +187,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-compass');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-bower-concat');
     grunt.loadNpmTasks('grunt-gh-pages');
@@ -167,6 +201,8 @@ module.exports = function (grunt) {
         'blogbuilder',
         'sitemap',
         'compass',
+        'concat',
+        'cssmin',
         'uglify',
         'copy'
     ]);
