@@ -105,6 +105,7 @@ var TeslaGenerator = yeoman.generators.Base.extend({
             this.template('_Gruntfile.js', 'Gruntfile.js');
             this.template('_package.json', 'package.json');
             this.template('_CNAME', 'CNAME');
+            this.template('gitignore', '.gitignore');
 
             // Underscore template
             this.src.copy('archive.hbs', 'app/templates/archive.hbs');
