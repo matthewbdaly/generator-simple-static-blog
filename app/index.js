@@ -97,6 +97,7 @@ var TeslaGenerator = yeoman.generators.Base.extend({
             this.dest.mkdir('app');
             this.dest.mkdir('app/templates');
             this.dest.mkdir('app/templates/partials');
+            this.dest.mkdir('app/sass');
 
             // Config files
             this.src.copy('_bower.json', 'bower.json');
@@ -113,6 +114,9 @@ var TeslaGenerator = yeoman.generators.Base.extend({
             this.src.copy('post.hbs', 'app/templates/post.hbs');
             this.src.copy('partials/header.hbs', 'app/templates/partials/header.hbs');
             this.src.copy('partials/footer.hbs', 'app/templates/partials/footer.hbs');
+
+            // Sass
+            this.src.copy('_style.scss', 'app/sass/style.scss');
 
             // Content folders
             this.dest.mkdir('content');

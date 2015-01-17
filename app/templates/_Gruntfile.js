@@ -115,6 +115,14 @@ module.exports = function (grunt) {
                 livereload: true
             }
         },
+        compass: {
+            dist: {
+                options: {
+                    sassDir: 'app/sass',
+                    cssDir: 'static/css'
+                }
+            }
+        },
         sitemap: {
             dist: {
                 siteRoot: 'build/',
@@ -140,6 +148,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('grunt-bower-concat');
     grunt.loadNpmTasks('grunt-gh-pages');
     grunt.loadNpmTasks('grunt-sitemap');
@@ -150,6 +159,7 @@ module.exports = function (grunt) {
         'bower_concat',
         'blogbuilder',
         'sitemap',
+        'compass',
         'copy'
     ]);
     grunt.registerTask('serve', [
