@@ -97,6 +97,14 @@ module.exports = function (grunt) {
                 ],
                 dest: '<%= www %>/static/'
             },
+            rss: {
+                cwd: '<%= build %>/',
+                expand: true,
+                src: [
+                    'rss.xml'
+                ],
+                dest: '<%= www %>/'
+            },
             cname: {
                 src: 'CNAME',
                 dest: '<%= www %>/'
