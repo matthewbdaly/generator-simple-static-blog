@@ -15,7 +15,10 @@ module.exports = function (grunt) {
                 },
                 bowerOptions: {
                     relative: false
-                }
+                },
+                exclude: [
+                    'highlightjs'
+                ]
             }
         },
         blogbuilder: {
@@ -122,7 +125,8 @@ module.exports = function (grunt) {
                     'content/pages/*.md',
                     'content/pages/*.markdown',
                     'content/posts/*.md',
-                    'content/posts/*.markdown'
+                    'content/posts/*.markdown',
+                    'app/sass/style.scss'
                 ],
                 tasks: ['default'],
                 options: {

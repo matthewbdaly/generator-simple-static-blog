@@ -3,3 +3,10 @@
 div {
     @include hyphenation;
 }
+
+pre code {
+    background-color: #474949;
+    color: #d1d9e1;
+    display: block;
+    padding: .5em;
+}
