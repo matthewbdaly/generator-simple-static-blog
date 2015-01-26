@@ -13,6 +13,10 @@
         <title>{{#if meta.title}}{{ meta.title }} - {{/if}}{{ data.title }}</title>
     </head>
     <body>
+
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        {{#if data.addthis}}<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid={{ data.addthis }}" async="async"></script>{{/if}}
+
         <header>
             <div class="container">
                 <div class="page-header">

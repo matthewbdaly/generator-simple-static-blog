@@ -27,13 +27,10 @@ module.exports = function (grunt) {
               data: {
                 author: "<%= author %>",
                 url: "<%= url %>",
+                <% if(addthis) { %>addthis: "<%= addthis %>",<% } %>
                 googleanalytics: "<%= googleanalytics %>",
-                <% if(facebookcomments) { %>
-                facebookcomments: "<%= facebookcomments %>",
-                <% } %>
-                <% if(disqus) { %>
-                disqus: "<%= disqus %>",
-                <% } %>
+                <% if(facebookcomments) { %>facebookcomments: "<%= facebookcomments %>",<% } %>
+                <% if(disqus) { %>disqus: "<%= disqus %>",<% } %>
                 title: "<%= title %>",
                 description: "<%= description %>"
               },

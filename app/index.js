@@ -61,6 +61,12 @@ var TeslaGenerator = yeoman.generators.Base.extend({
         },
         {
             type: 'input',
+            name: 'addthis',
+            message: 'If you wish to use AddThis for sharing, please enter your AddThis username. Otherwise, please press enter',
+            default: false
+        },
+        {
+            type: 'input',
             name: 'disqus',
             message: 'If you wish to use Disqus for comments, please enter your Disqus username. Otherwise, please press enter',
             default: false
@@ -77,6 +83,7 @@ var TeslaGenerator = yeoman.generators.Base.extend({
             this.title = props.title;
             this.description = props.description;
             this.url = props.url;
+            this.addthis = props.addthis;
             this.disqus = props.disqus;
             this.facebookcomments = props.facebookcomments;
             this.email = props.email;
