@@ -1,12 +1,24 @@
 @import "compass/css3/hyphenation";
+@import "compass/css3";
 
 div {
     @include hyphenation;
 }
 
-pre code {
+pre {
     background-color: #474949;
     color: #d1d9e1;
+}
+
+pre code {
     display: block;
     padding: .5em;
+}
+
+img {
+    max-width: 100%;
+    border: 1px solid #707070;
+    padding: 5px;
+    background-color: #efefef;
+    @include border-radius(4px, 4px);
 }
