@@ -8,17 +8,11 @@ div {
 pre {
     background-color: #474949;
     color: #d1d9e1;
-    overflow-x: auto;
 }
 
 pre code {
     display: block;
     padding: .5em;
-    white-space: pre;
-}
-
-pre code * {
-    white-space: nowrap;
 }
 
 img {
