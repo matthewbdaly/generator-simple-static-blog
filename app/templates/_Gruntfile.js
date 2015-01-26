@@ -101,7 +101,7 @@ module.exports = function (grunt) {
                 cwd: '<%= build %>/',
                 expand: true,
                 src: [
-                    'rss.xml'
+                    'atom.xml'
                 ],
                 dest: '<%= www %>/'
             },
@@ -184,7 +184,7 @@ module.exports = function (grunt) {
                 pattern: [
                     'build/index.html',
                     'build/**/*.html',
-                    'build/**/rss.xml'
+                    'build/**/atom.xml'
                 ],
                 homepage: '<%= url %>'
             }
