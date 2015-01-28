@@ -89,14 +89,6 @@ module.exports = function (grunt) {
                 ],
                 dest: '<%= www %>/static/js/'
             },
-            img: {
-                cwd: 'content/',
-                expand: true,
-                src: [
-                    'images/**'
-                ],
-                dest: '<%= www %>/static/'
-            },
             rss: {
                 cwd: '<%= build %>/',
                 expand: true,
@@ -108,6 +100,22 @@ module.exports = function (grunt) {
             cname: {
                 src: 'CNAME',
                 dest: '<%= www %>/'
+            },
+            sitemap: {
+                cwd: 'build/',
+                expand: true,
+                src: [
+                    'sitemap.xml'
+                ],
+                dest: 'www/'
+            },
+            robots: {
+                cwd: 'build/',
+                expand: true,
+                src: [
+                    'robots.txt'
+                ],
+                dest: 'www/'
             }
         },
         clean: [
@@ -178,6 +186,16 @@ module.exports = function (grunt) {
                 dest: 'build/js/dependencies.min.js'
             }
         },
+        imagemin: {
+            images: {
+                files: [{
+                    expand: true,
+                    cwd: 'content/images/',
+                    src: ['**/*.{png,jpg,gif}'],
+                    dest: '<%= www %>/static/images/'
+                }]
+            }
+        },
         sitemap: {
             dist: {
                 siteRoot: 'build/',
@@ -210,6 +228,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-bower-concat');
     grunt.loadNpmTasks('grunt-gh-pages');
     grunt.loadNpmTasks('grunt-sitemap');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
 
     // Register tasks
     grunt.registerTask('default', [
@@ -221,6 +240,7 @@ module.exports = function (grunt) {
         'concat',
         'cssmin',
         'uglify',
+        'imagemin',
         'copy'
     ]);
     grunt.registerTask('serve', [
