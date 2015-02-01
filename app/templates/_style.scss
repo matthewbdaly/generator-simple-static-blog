@@ -5,11 +5,6 @@ div {
     @include hyphenation;
 }
 
-pre {
-    background-color: #474949;
-    color: #d1d9e1;
-}
-
 pre code {
     display: block;
     padding: .5em;
