@@ -45,7 +45,7 @@ var TeslaGenerator = yeoman.generators.Base.extend({
             type: 'input',
             name: 'url',
             message: 'Please enter the full URL where the blog will be hosted',
-            default: 'http://example.com/'
+            default: 'http://example.com'
         },
         {
             type: 'input',
