@@ -122,6 +122,8 @@ var TeslaGenerator = yeoman.generators.Base.extend({
             this.src.copy('post.hbs', 'app/templates/post.hbs');
             this.src.copy('partials/header.hbs', 'app/templates/partials/header.hbs');
             this.src.copy('partials/footer.hbs', 'app/templates/partials/footer.hbs');
+            this.src.copy('partials/sidebar.hbs', 'app/templates/partials/sidebar.hbs');
+            this.src.copy('_robots.txt', 'app/templates/robots.txt');
 
             // Sass
             this.src.copy('_style.scss', 'app/sass/style.scss');

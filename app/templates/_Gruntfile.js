@@ -22,7 +22,7 @@ module.exports = function (grunt) {
             }
         },
         blogbuilder: {
-          default_options: {
+          default: {
             options: {
               data: {
                 author: "<%= author %>",
@@ -40,8 +40,10 @@ module.exports = function (grunt) {
                 index: 'app/templates/index.hbs',
                 header: 'app/templates/partials/header.hbs',
                 footer: 'app/templates/partials/footer.hbs',
+                sidebar: 'app/templates/partials/sidebar.hbs',
                 archive: 'app/templates/archive.hbs',
-                notfound: 'app/templates/404.hbs'
+                notfound: 'app/templates/404.hbs',
+                robots: 'app/templates/robots.txt'
               },
               src: {
                 posts: 'content/posts/',
@@ -52,7 +54,7 @@ module.exports = function (grunt) {
               }
             },
             files: {
-              'tmp/default_options': ['test/fixtures/testing', 'test/fixtures/123']
+              'tmp/default': ['test/fixtures/testing', 'test/fixtures/123']
             }
           }
         },
@@ -127,6 +129,7 @@ module.exports = function (grunt) {
                 files: [
                     'app/templates/*.hbs',
                     'app/templates/partials/*.hbs',
+                    'app/templates/robots.txt',
                     'content/pages/*.md',
                     'content/pages/*.markdown',
                     'content/posts/*.md',
