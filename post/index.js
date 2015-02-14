@@ -36,7 +36,7 @@ var PostGenerator = yeoman.generators.Base.extend({
     writing: {
         content: function () {
             // Create post template
-            var post_file_name = this.title.replace(/ /g, '-').replace(/\./g, '-').toLowerCase();
+            var post_file_name = this.title.replace(/ /g, '-').replace(/\./g, '-dot-').toLowerCase();
             this.template('_new_post.md', 'content/posts/' + this.date.toISOString().replace(/T.*$/, '') + '-' + post_file_name + '.md');
         }
     },
