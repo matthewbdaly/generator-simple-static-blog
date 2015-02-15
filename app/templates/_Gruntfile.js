@@ -212,7 +212,7 @@ module.exports = function (grunt) {
                     'build/**/*.html',
                     'build/**/atom.xml'
                 ],
-                homepage: '<%= url %>'
+                homepage: '<%= url %>/'
             }
         },
         'gh-pages': {
