@@ -5,3 +5,4 @@ static/bower_components/
 .DS_Store
 *.swp
 www/
+tmp/
