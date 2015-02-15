@@ -2,6 +2,8 @@
 
 > [Yeoman](http://yeoman.io) generator for creating a simple static blog
 
+To see an example of this blogging system in the wild, visit [my site](http://matthewdaly.co.uk).
+
 
 ## Getting Started
 
