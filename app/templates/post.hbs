@@ -44,12 +44,14 @@
 
     <div class="row">
         <div class="col-md-12">
-            {{#if next}}
-            <a href="{{ next.path }}">{{capitalize next.title}}</a>
-            {{/if}}
-            {{#if prev}}
-            <a href="{{ prev.path }}">{{capitalize prev.title}}</a>
-            {{/if}}
+            <ul class="pager">
+                {{#if next}}
+                <li><a href="{{ next.path }}">{{capitalize next.title}}</a></li>
+                {{/if}}
+                {{#if prev}}
+                <li><a href="{{ prev.path }}">{{capitalize prev.title}}</a></li>
+                {{/if}}
+            </ul>
         </div>
     </div>
 
