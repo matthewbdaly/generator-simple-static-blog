@@ -21,6 +21,8 @@ yo simple-static-blog
 
 The blog offers comments using either Disqus or Facebook comments. This can be configured when you first set up your blog.
 
+It also includes AddThis integration.
+
 ### Sub-generators
 
 This generator has two sub-generators:
@@ -45,7 +47,10 @@ There are three Grunt tasks included:
 
 * `grunt` builds the site - however, in practice you will probably never need to call this as the other tasks also call it.
 * `grunt serve` builds the site and calls the development server, with live reload included so that you can see new content immediately.
-* `grunt deploy` builds the site and deploys it to GitHub Pages
+* `grunt deploy` builds the site and deploys it to GitHub Pages. However, it's easy to amend it to deploy it using other methods, including:
+  * `grunt-rsync` for syncing to a server with shell access (I have used this to deploy to a Raspberry Pi)
+  * `grunt-bitbucket-pages` for pushing the site to Bitbucket Pages (this is very easy to configure and works well)
+  * `grunt-ftp-deploy` if you only have FTP access
 
 ## License
 
