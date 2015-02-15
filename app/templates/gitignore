@@ -4,3 +4,4 @@ static/bower_components/
 .sass-cache/
 .DS_Store
 *.swp
+www/

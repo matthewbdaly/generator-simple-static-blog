@@ -3,6 +3,7 @@ var util = require('util');
 var path = require('path');
 var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
+var url = require('url');
 
 var TeslaGenerator = yeoman.generators.Base.extend({
     initializing: function () {
@@ -49,12 +50,6 @@ var TeslaGenerator = yeoman.generators.Base.extend({
         },
         {
             type: 'input',
-            name: 'domainname',
-            message: 'Please enter the domain name where the blog will be hosted',
-            default: 'example.com'
-        },
-        {
-            type: 'input',
             name: 'googleanalytics',
             message: 'Please enter your Google Analytics site ID',
             default: 'UA-XXXXX-X'
@@ -76,6 +71,12 @@ var TeslaGenerator = yeoman.generators.Base.extend({
             name: 'facebookcomments',
             message: 'If you wish to use Facebook for comments, please enter your Facebook app ID. Otherwise, please press enter',
             default: false
+        },
+        {
+            type: 'input',
+            name: 'github',
+            message: 'If you wish to link to a Github profile, please enter your GitHub username. Otherwise, please press enter',
+            default: false                
         }];
 
         this.prompt(prompts, function (props) {
@@ -86,8 +87,9 @@ var TeslaGenerator = yeoman.generators.Base.extend({
             this.addthis = props.addthis;
             this.disqus = props.disqus;
             this.facebookcomments = props.facebookcomments;
+            this.github = props.github;
             this.email = props.email;
-            this.domainname = props.domainname;
+            this.domainname = url.parse(this.url).hostname;
             this.googleanalytics = props.googleanalytics;
 
             // Existing config
@@ -105,6 +107,7 @@ var TeslaGenerator = yeoman.generators.Base.extend({
             this.dest.mkdir('app/templates');
             this.dest.mkdir('app/templates/partials');
             this.dest.mkdir('app/sass');
+            this.dest.mkdir('app/js');
 
             // Config files
             this.src.copy('_bower.json', 'bower.json');
@@ -116,6 +119,7 @@ var TeslaGenerator = yeoman.generators.Base.extend({
 
             // Underscore template
             this.src.copy('archive.hbs', 'app/templates/archive.hbs');
+            this.src.copy('category.hbs', 'app/templates/category.hbs');
             this.src.copy('404.hbs', 'app/templates/404.hbs');
             this.src.copy('index.hbs', 'app/templates/index.hbs');
             this.src.copy('page.hbs', 'app/templates/page.hbs');
@@ -127,6 +131,9 @@ var TeslaGenerator = yeoman.generators.Base.extend({
 
             // Sass
             this.src.copy('_style.scss', 'app/sass/style.scss');
+            
+            // JavaScript
+            this.template('_main.js', 'app/js/main.js');
 
             // Content folders
             this.dest.mkdir('content');

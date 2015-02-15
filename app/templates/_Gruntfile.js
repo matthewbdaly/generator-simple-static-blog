@@ -31,6 +31,7 @@ module.exports = function (grunt) {
                 googleanalytics: "<%= googleanalytics %>",
                 <% if(facebookcomments) { %>facebookcomments: "<%= facebookcomments %>",<% } %>
                 <% if(disqus) { %>disqus: "<%= disqus %>",<% } %>
+                <% if(github) { %>github: "<%= github %>",<% } %>
                 title: "<%= title %>",
                 description: "<%= description %>"
               },
@@ -43,7 +44,8 @@ module.exports = function (grunt) {
                 sidebar: 'app/templates/partials/sidebar.hbs',
                 archive: 'app/templates/archive.hbs',
                 notfound: 'app/templates/404.hbs',
-                robots: 'app/templates/robots.txt'
+                robots: 'app/templates/robots.txt',
+                category: 'app/templates/category.hbs'
               },
               src: {
                 posts: 'content/posts/',
@@ -87,7 +89,7 @@ module.exports = function (grunt) {
                 cwd: '<%= build %>/js/',
                 expand: true,
                 src: [
-                    'dependencies.min.js'
+                    'all.min.js'
                 ],
                 dest: '<%= www %>/static/js/'
             },
@@ -185,8 +187,11 @@ module.exports = function (grunt) {
         },
         uglify: {
             dist: {
-                src: 'build/dependencies.js',
-                dest: 'build/js/dependencies.min.js'
+                src: [
+                    'build/dependencies.js',
+                    'app/js/main.js'
+                ],
+                dest: 'build/js/all.min.js'
             }
         },
         imagemin: {
