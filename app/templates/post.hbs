@@ -19,14 +19,14 @@
                 <p class="date">{{ this.meta.formattedDate }}</p>
                 <h1>{{capitalize meta.title}}</h1>
                 {{{ post.content }}}
-                <ul>{{#each meta.categories }}<li><a href="/blog/categories/{{ linkformat this }}/">{{ this }}</a></li>{{/each}}</ul>
+                <ul class="categorylist">{{#each meta.categories }}<li><a href="/blog/categories/{{ linkformat this }}/">{{ this }}</a></li>{{/each}}</ul>
                 {{#if data.addthis}}<div class="addthis_sharing_toolbox"></div>{{/if}}
               <section class="comments">
                   {{#if data.disqus }}
                   <div id="disqus_thread"></div>
                   <script type="text/javascript">
-                    window.disqus_identifier="";
-                    window.disqus_url="{{ data.url }}{{ path }}/";
+                    window.disqus_identifier="{{ data.url }}{{ path }}";
+                    window.disqus_url="{{ data.url }}{{ path }}";
                     window.disqus_title="{{capitalize meta.title}}";
                   </script>
                   <script type="text/javascript" src="http://disqus.com/forums/{{ data.disqus }}/embed.js"></script>
