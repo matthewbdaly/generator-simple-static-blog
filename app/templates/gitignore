@@ -7,3 +7,4 @@ static/bower_components/
 www/
 tmp/
 .grunt/
+blogbuilderoutput/
