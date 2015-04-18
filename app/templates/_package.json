@@ -24,6 +24,7 @@
     "grunt-gh-pages": "^0.9.1",
     "grunt-blogbuilder": "0.0.41",
     "grunt-sitemap": "^1.2.1",
-    "grunt-contrib-imagemin": "^0.9.3"
+    "grunt-contrib-imagemin": "^0.9.3",
+    "grunt-contrib-htmlmin": "^0.4.0"
   }
 }

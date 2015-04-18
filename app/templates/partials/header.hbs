@@ -19,7 +19,7 @@
 
         <header>
             <nav class="navbar navbar-inverse navbar-static-top">
-                <div class="container-fluid">
+                <div class="container">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#header-nav">
                             <span class="icon-bar"></span>
@@ -35,10 +35,9 @@
                             </ul>
                             <form action="http://www.google.com/search" method="GET" name="searchForm" id="searchForm" enctype="application/x-www-form-urlencoded" class="navbar-form navbar-right">
                                 <div class="form-group">
-                                    <input id="search" type="search" name="q" placeholder="Search..." maxlength="200" class="form-control"></input>
+                                    <input id="search" type="search" name="q" placeholder="Search..." maxlength="200" class="form-control">
+                                    <ul class="searchresults"></ul>
                                 </div>
-                                <input id="site" name="q" type="hidden" value="site:{{ domain }}" />
-                                <input type="submit" class="btn btn-default"></input>
                             </form>
                         </div>
                     </div>

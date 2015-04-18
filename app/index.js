@@ -95,7 +95,8 @@ var TeslaGenerator = yeoman.generators.Base.extend({
             // Existing config
             this.www = 'www';
             this.build = 'build';
-            this.static_files = 'static';
+            this.blogbuilderoutput = 'blogbuilderoutput';
+            this.static = 'static';
 
             done();
         }.bind(this));

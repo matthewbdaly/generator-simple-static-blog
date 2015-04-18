@@ -1,19 +1,42 @@
 $(document).ready(function () {
     'use strict';
-    
-    // Override search to work properly
-    $('form#searchForm').on('submit', function (event) {
-        // Prevent default behaviour
-        event.preventDefault();
+       
+    // Set up search
+    var index, store;
+    $.getJSON('/lunr.json', function (response) {
 
-        // Get parameters
-        var site, search;
-        site = $('input#site').val();
-        search = $('input#search').val();
+        // Create index
+        index = lunr.Index.load(response.index);
 
-        // Load the required page
-        window.location = 'http://www.google.com/search?q=' + encodeURIComponent(site + ' ' + search);
+        // Create store
+        store = response.store;
+
+        // Handle search
+        $('input#search').on('keyup', function () {
+            // Get query
+            var query = $(this).val();
+
+            // Search for it
+            var result = index.search(query);
+
+            // Output it
+            var resultdiv = $('ul.searchresults');
+            if (result.length === 0) {
+                // Hide results
+                resultdiv.hide();
+            } else {
+                // Show results
+                resultdiv.empty();
+                for (var item in result) {
+                    var ref = result[item].ref;
+                    var searchitem = '<li><a href="' + ref + '">' + store[ref].title + '</a></li>';
+                    resultdiv.append(searchitem);
+                }
+                resultdiv.show();
+            }
+        });
     });
+  
     <% if(github) { %>
     // Get GitHub repos
     $.get('https://api.github.com/users/<%= github %>/repos?type=owner', function (response) {

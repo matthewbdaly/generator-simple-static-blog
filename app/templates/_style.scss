@@ -90,6 +90,7 @@ blockquote {
 article.post {
 
     margin-bottom: 50px;
+    border-bottom: 1px dotted #e0e0e0;
 
     h1 {
         white-space: pre-wrap;
@@ -147,4 +148,32 @@ p.copyright {
     border-top: 1px dotted #e0e0e0;
     margin-top: 20px;
     padding-top: 20px;
+}
+
+ul.searchresults {
+    display: none;
+    width: 200px;
+    background-color: #f8f8f8;
+    font-size: 10px;
+    list-style-type: none;
+    padding-left: 0;
+    overflow-y: overlay;
+    z-index: 9999;
+    position: absolute;
+    border: 1px solid #cfcfcf;
+
+    li {
+        border-bottom: 1px solid #cfcfcf;
+
+        a {
+            padding: 5px;
+            display: block;
+            color: #000000;
+            text-decoration: none;
+
+            &:hover {
+                background-color: #cfcfcf;
+            }
+        }
+    }
 }

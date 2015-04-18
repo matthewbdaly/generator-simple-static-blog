@@ -9,7 +9,7 @@ module.exports = function (grunt) {
         },
         bower_concat: {
             all: {
-                dest: 'build/dependencies.js',
+                dest: '<%= build %>/dependencies.js',
                 dependencies: {
                     'bootstrap-sass-official': 'jquery'
                 },
@@ -52,11 +52,8 @@ module.exports = function (grunt) {
                 pages: 'content/pages/'
               },
               www: {
-                dest: 'build'
+                dest: '<%= blogbuilderoutput %>'
               }
-            },
-            files: {
-              'tmp/default': ['test/fixtures/testing', 'test/fixtures/123']
             }
           }
         },
@@ -72,7 +69,7 @@ module.exports = function (grunt) {
             },
             static_assets: {
                 expand: true,
-                cwd: 'static/',
+                cwd: '<%= static %>/',
                 src: [
                     'bower_components/**'
                 ],
@@ -95,7 +92,7 @@ module.exports = function (grunt) {
                 dest: '<%= www %>/static/js/'
             },
             rss: {
-                cwd: '<%= build %>/',
+                cwd: '<%= blogbuilderoutput %>/',
                 expand: true,
                 src: [
                     'atom.xml'
@@ -107,25 +104,34 @@ module.exports = function (grunt) {
                 dest: '<%= www %>/'
             },
             sitemap: {
-                cwd: 'build/',
+                cwd: '<%= blogbuilderoutput %>/',
                 expand: true,
                 src: [
                     'sitemap.xml'
                 ],
-                dest: 'www/'
+                dest: '<%= www %>/'
             },
             robots: {
-                cwd: 'build/',
+                cwd: '<%= blogbuilderoutput %>/',
                 expand: true,
                 src: [
                     'robots.txt'
                 ],
-                dest: 'www/'
+                dest: '<%= www %>/'
+            },
+            lunr: {
+                cwd: '<%= blogbuilderoutput %>/',
+                expand: true,
+                src: [
+                    'lunr.json'
+                ],
+                dest: '<%= www %>/'
             }
         },
         clean: [
             '<%= www %>',
-            '<%= build %>'
+            '<%= build %>',
+            '<%= blogbuilderoutput %>'
         ],
         watch: {
             scripts: {
@@ -167,32 +173,46 @@ module.exports = function (grunt) {
             dist: {
                 options: {
                     sassDir: 'app/sass',
-                    cssDir: 'build/css'
+                    cssDir: '<%= build %>/css'
                 }
             }
         },
         concat: {
             dist: {
                 src: [
-                    'static/bower_components/highlightjs/styles/rainbow.css',
-                    'build/css/style.css'
+                    '<%= static %>/bower_components/highlightjs/styles/rainbow.css',
+                    '<%= build %>/css/style.css'
                 ],
-                dest: 'build/css/output.css'
+                dest: '<%= build %>/css/output.css'
             }
         },
         cssmin: {
             dist: {
-                src: 'build/css/output.css',
-                dest: 'build/css/style.min.css'
+                src: '<%= build %>/css/output.css',
+                dest: '<%= build %>/css/style.min.css'
+            }
+        },
+        htmlmin: {
+            dist: {
+                options: {
+                    removeComments: true,
+                    collapseWhitespace: true
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= blogbuilderoutput %>',
+                    src: '**/*.html',
+                    dest: '<%= build %>/'
+                }]
             }
         },
         uglify: {
             dist: {
                 src: [
-                    'build/dependencies.js',
+                    '<%= build %>/dependencies.js',
                     'app/js/main.js'
                 ],
-                dest: 'build/js/all.min.js'
+                dest: '<%= build %>/js/all.min.js'
             }
         },
         imagemin: {
@@ -207,18 +227,18 @@ module.exports = function (grunt) {
         },
         sitemap: {
             dist: {
-                siteRoot: 'build/',
+                siteRoot: '<%= blogbuilderoutput %>/',
                 pattern: [
-                    'build/index.html',
-                    'build/**/*.html',
-                    'build/**/atom.xml'
+                    '<%= blogbuilderoutput %>/index.html',
+                    '<%= blogbuilderoutput %>/**/*.html',
+                    '<%= blogbuilderoutput %>/**/atom.xml'
                 ],
                 homepage: '<%= url %>/'
             }
         },
         'gh-pages': {
             options: {
-                base: 'www',
+                base: '<%= www %>',
                 branch: 'master'
             },
             src: ['**']
@@ -234,6 +254,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-bower-concat');
     grunt.loadNpmTasks('grunt-gh-pages');
@@ -249,6 +270,7 @@ module.exports = function (grunt) {
         'compass',
         'concat',
         'cssmin',
+        'htmlmin',
         'uglify',
         'imagemin',
         'copy'
