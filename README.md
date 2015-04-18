@@ -1,6 +1,6 @@
 # generator-simple-static-blog 
 
-> [Yeoman](http://yeoman.io) generator for creating a simple static blog
+> [Yeoman](http://yeoman.io) generator for creating a simple static blog. It includes a static search system, powered by [Lunr.js](http://lunrjs.com/).
 
 To see an example of this blogging system in the wild, visit [my site](http://matthewdaly.co.uk).
 
