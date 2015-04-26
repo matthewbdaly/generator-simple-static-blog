@@ -63,7 +63,7 @@ module.exports = function (grunt) {
                 cwd: '<%= build %>/',
                 src: [
                     '**/*.html',
-                    '**/atom.xml'
+                    '**/rss.xml'
                 ],
                 dest: '<%= www %>/'
             },
@@ -95,7 +95,7 @@ module.exports = function (grunt) {
                 cwd: '<%= blogbuilderoutput %>/',
                 expand: true,
                 src: [
-                    'atom.xml'
+                    'rss.xml'
                 ],
                 dest: '<%= www %>/'
             },
@@ -231,7 +231,7 @@ module.exports = function (grunt) {
                 pattern: [
                     '<%= blogbuilderoutput %>/index.html',
                     '<%= blogbuilderoutput %>/**/*.html',
-                    '<%= blogbuilderoutput %>/**/atom.xml'
+                    '<%= blogbuilderoutput %>/**/rss.xml'
                 ],
                 homepage: '<%= url %>/'
             }
