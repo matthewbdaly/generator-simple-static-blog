@@ -34,7 +34,7 @@ var PageGenerator = yeoman.generators.Base.extend({
     writing: {
         content: function () {
             // Create post template
-            var page_file_name = this.title.replace(/ /g, '-').replace(/\./g, '-dot-').toLowerCase();
+            var page_file_name = this.title.replace(/,/g, '').replace(/ /g, '-').replace(/\./g, '-dot-').toLowerCase();
             this.template('_new_page.md', 'content/pages/' + page_file_name + '.md');
         }
     },
