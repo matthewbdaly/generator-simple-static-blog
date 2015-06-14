@@ -1,5 +1,7 @@
 # generator-simple-static-blog 
 
+[![Join the chat at https://gitter.im/matthewbdaly/generator-simple-static-blog](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/matthewbdaly/generator-simple-static-blog?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 > [Yeoman](http://yeoman.io) generator for creating a simple static blog. It includes a static search system, powered by [Lunr.js](http://lunrjs.com/).
 
 To see an example of this blogging system in the wild, visit [my site](http://matthewdaly.co.uk).
