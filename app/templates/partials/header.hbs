@@ -5,12 +5,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
         <meta name="description" content="{{ data.description }}">
+        {{#if meta.categories}}<meta name="keywords" content="{{join meta.categories }}">{{/if}}
         {{#if data.facebookcomments}}<meta property="fb:app_id" content="{{ data.facebookcomments }}"/>{{/if}}
+        <link href="/favicon.ico" rel="icon">
         <link href='http://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>
-        <link rel="canonical" href="{{ canonical }}">
         <link rel="stylesheet" type="text/css" href="/static/bower_components/sass-bootstrap/dist/css/bootstrap.min.css" media="all" />
         <link rel="stylesheet" type="text/css" href="/static/css/style.min.css" media="all" />
-        <link rel="alternate" type="application/rss+xml" title="{{capitalize data.title}} - feed" href="/rss.xml" />
+        <link rel="alternate" type="application/rss+xml" title="{{capitalize data.title}} - feed" href="http://feeds.feedburner.com/MatthewDalysBlog" />
         <title>{{#if meta.title}}{{capitalize meta.title}} - {{/if}}{{capitalize data.title}}</title>
     </head>
     <body>
@@ -19,8 +20,14 @@
         {{#if data.addthis}}<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid={{ data.addthis }}" async="async"></script>{{/if}}
 
         <header>
-            <nav class="navbar navbar-inverse navbar-static-top">
-                <div class="container">
+            <div class="container headercontainer">
+                <div class="jumbotron">
+                    <h1><a href="/">{{capitalize data.title}}</a></h1>
+                    <h2>{{ data.description }}</h2>
+                </div>
+            </div>
+            <div class="container headercontainer">
+                <nav class="navbar navbar-inverse navbar-static-top">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#header-nav">
                             <span class="icon-bar"></span>
@@ -32,23 +39,16 @@
                                 <li><a href="/">Home</a></li>
                                 <li><a href="/blog/archives/">Archives</a></li>
                                 <li><a href="/about/">About</a></li>
-                                <li><a href="/rss.xml">RSS</a></li>
+                                <li><a href="http://feeds.feedburner.com/MatthewDalysBlog">RSS</a></li>
                             </ul>
                             <form action="http://www.google.com/search" method="GET" name="searchForm" id="searchForm" enctype="application/x-www-form-urlencoded" class="navbar-form navbar-right">
                                 <div class="form-group">
-                                    <input id="search" type="search" name="q" placeholder="Search..." maxlength="200" class="form-control">
+                                    <input id="search" type="search" name="q" placeholder="Search..." maxlength="200" autocomplete="off" class="form-control">
                                     <ul class="searchresults"></ul>
                                 </div>
                             </form>
                         </div>
                     </div>
-                </div>
-            </nav>
-
-            <div class="container">
-                <div class="page-header">
-                    <h1><a href="/">{{capitalize data.title}}</a></h1>
-                    <h2>{{ data.description }}</h2>
-                </div>
+                </nav>
             </div>
         </header>
