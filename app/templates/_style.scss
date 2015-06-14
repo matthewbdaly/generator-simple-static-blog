@@ -75,6 +75,11 @@ div {
     @include hyphenation;
 }
 
+code {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
 pre {
     padding: 0;
     margin-bottom: 0;
