@@ -27,13 +27,16 @@ module.exports = function (grunt) {
               data: {
                 author: "<%= author %>",
                 url: "<%= url %>",
+                email: "<%= email %>",
                 <% if(addthis) { %>addthis: "<%= addthis %>",<% } %>
                 googleanalytics: "<%= googleanalytics %>",
                 <% if(facebookcomments) { %>facebookcomments: "<%= facebookcomments %>",<% } %>
                 <% if(disqus) { %>disqus: "<%= disqus %>",<% } %>
                 <% if(github) { %>github: "<%= github %>",<% } %>
                 title: "<%= title %>",
-                description: "<%= description %>"
+                description: "<%= description %>",
+                truncatefeed: 0,
+                linenos: true
               },
               template: {
                 post: 'app/templates/post.hbs',
@@ -63,7 +66,8 @@ module.exports = function (grunt) {
                 cwd: '<%= build %>/',
                 src: [
                     '**/*.html',
-                    '**/rss.xml'
+                    '**/rss.xml',
+                    '**/atom.xml'
                 ],
                 dest: '<%= www %>/'
             },
@@ -96,6 +100,14 @@ module.exports = function (grunt) {
                 expand: true,
                 src: [
                     'rss.xml'
+                ],
+                dest: '<%= www %>/'
+            },
+            atom: {
+                cwd: '<%= blogbuilderoutput %>/',
+                expand: true,
+                src: [
+                    'atom.xml'
                 ],
                 dest: '<%= www %>/'
             },

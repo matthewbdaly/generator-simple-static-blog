@@ -12,6 +12,7 @@ var PostGenerator = yeoman.generators.Base.extend({
 
     prompting: function () {
         var done = this.async();
+        this.log(yosay(process.cwd()));
 
         // Have Yeoman greet the user.
         this.log(yosay(
