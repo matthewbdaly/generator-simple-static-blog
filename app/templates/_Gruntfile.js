@@ -188,18 +188,9 @@ module.exports = function (grunt) {
                 }
             }
         },
-        concat: {
-            dist: {
-                src: [
-                    '<%= static %>/bower_components/highlightjs/styles/rainbow.css',
-                    '<%= build %>/css/style.css'
-                ],
-                dest: '<%= build %>/css/output.css'
-            }
-        },
         cssmin: {
             dist: {
-                src: '<%= build %>/css/output.css',
+                src: '<%= build %>/css/style.css',
                 dest: '<%= build %>/css/style.min.css'
             }
         },
@@ -221,7 +212,7 @@ module.exports = function (grunt) {
             dist: {
                 src: [
                     '<%= build %>/dependencies.js',
-                    'app/js/main.js'
+                    'build/js/all.js'
                 ],
                 dest: '<%= build %>/js/all.min.js'
             }
