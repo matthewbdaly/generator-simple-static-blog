@@ -7,19 +7,18 @@ module.exports = function (grunt) {
             posts: 'content/posts/',
             pages: 'content/pages/'
         },
-        bower_concat: {
-            all: {
-                dest: '<%= build %>/dependencies.js',
-                dependencies: {
-                    'bootstrap-sass-official': 'jquery'
-                },
-                bowerOptions: {
-                    relative: false
-                },
-                exclude: [
-                    'highlightjs'
-                ]
+        jshint: {
+            all: [
+                'Gruntfile.js',
+                'app/js/*.js'
+            ]
+        },
+        browserify: {
+          dist: {
+            files: {
+              'build/js/all.js': 'app/js/main.js'
             }
+          }
         },
         blogbuilder: {
           default: {
@@ -258,29 +257,30 @@ module.exports = function (grunt) {
     });
 
     // Load tasks
+    grunt.loadNpmTasks('grunt-newer');
     grunt.loadNpmTasks('grunt-blogbuilder');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-compass');
-    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-bower-concat');
     grunt.loadNpmTasks('grunt-gh-pages');
     grunt.loadNpmTasks('grunt-sitemap');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-browserify');
 
     // Register tasks
     grunt.registerTask('default', [
         'clean',
-        'bower_concat',
+        'newer:jshint',
+        'browserify',
         'blogbuilder',
         'sitemap',
         'compass',
-        'concat',
         'cssmin',
         'htmlmin',
         'uglify',

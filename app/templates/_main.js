@@ -1,6 +1,10 @@
+var $ = window.$ = window.jQuery = require('jquery');
+var bootstrapjs = require('bootstrap-sass');
+var lunr = require('lunr');
+
 $(document).ready(function () {
     'use strict';
-    
+
     // Set up search
     var index, store;
     $.getJSON('/lunr.json', function (response) {
@@ -36,4 +40,23 @@ $(document).ready(function () {
             }
         });
     });
+
+    // Get GitHub repos
+    $.get('https://api.github.com/users/matthewbdaly/repos?type=owner', function (response) {
+        var repolist = $('ul#github-repos');
+        repolist.empty();
+        for (var item in response) {
+            // If repo is not a fork, display it
+            if (!response[item].fork) {
+                repolist.append('<li><a href="' + response[item].html_url + '">' + response[item].name + '</a><p>' + response[item].description + '</p></li>');
+            }
+        }
+
+        // Get owner details from first item
+        var profile = response[0].owner;
+
+        // Insert them
+        $('section#github-profile').append('<a id="github-image" href="' + profile.html_url + '" target="_blank"><img src="' + profile.avatar_url + '"></img></a>');
+    });
+
 });
