@@ -22,7 +22,7 @@ var TeslaGenerator = yeoman.generators.Base.extend({
             type: 'input',
             name: 'author',
             message: 'Please enter the author\'s full name',
-            default: 'My Name'        
+            default: 'My Name'
         },
         {
             type: 'input',
@@ -76,7 +76,7 @@ var TeslaGenerator = yeoman.generators.Base.extend({
             type: 'input',
             name: 'github',
             message: 'If you wish to link to a Github profile, please enter your GitHub username. Otherwise, please press enter',
-            default: false                
+            default: false
         }];
 
         this.prompt(prompts, function (props) {
@@ -111,8 +111,6 @@ var TeslaGenerator = yeoman.generators.Base.extend({
             this.dest.mkdir('app/js');
 
             // Config files
-            this.src.copy('_bower.json', 'bower.json');
-            this.src.copy('_bowerrc', '.bowerrc');
             this.template('_Gruntfile.js', 'Gruntfile.js');
             this.template('_package.json', 'package.json');
             this.template('_CNAME', 'CNAME');
@@ -132,7 +130,7 @@ var TeslaGenerator = yeoman.generators.Base.extend({
 
             // Sass
             this.src.copy('_style.scss', 'app/sass/style.scss');
-            
+
             // JavaScript
             this.template('_main.js', 'app/js/main.js');
 
