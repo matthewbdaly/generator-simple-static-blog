@@ -148,7 +148,7 @@ var TeslaGenerator = yeoman.generators.Base.extend({
     },
 
     end: function () {
-        this.installDependencies();
+        this.npmInstall();
     }
 });
 
