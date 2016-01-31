@@ -19,10 +19,22 @@ describe('simple-static-blog:app', function () {
 
   it('creates files', function () {
     assert.file([
-      'bower.json',
       'package.json',
       '.editorconfig',
-      '.jshintrc'
+      '.jshintrc',
+      'Gruntfile.js',
+      'CNAME',
+      'app/js/main.js',
+      'app/sass/style.scss',
+      'app/templates/partials/header.hbs',
+      'app/templates/partials/footer.hbs',
+      'app/templates/404.hbs',
+      'app/templates/archive.hbs',
+      'app/templates/category.hbs',
+      'app/templates/index.hbs',
+      'app/templates/page.hbs',
+      'app/templates/post.hbs',
+      'app/templates/robots.txt',
     ]);
   });
 });
