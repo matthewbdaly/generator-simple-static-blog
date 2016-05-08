@@ -1,7 +1,9 @@
+@import url(http://fonts.googleapis.com/css?family=PT+Serif);
 @import "../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 @import "../../node_modules/highlight.js/styles/rainbow.css";
 @import "compass/css3/user-interface";
 @import "compass/css3";
+@import "colours";
 
 [data-pseudo-content]::before,
 [data-pseudo-content--before]::before,
@@ -10,18 +12,32 @@
 }
 
 body {
-    background-color: #000000;
+    background-color: $bodyBg;
 }
 
 h1, h2, h3, h4, h5, h6 {
 
     a {
-        color: #000000;
+        color: $textBg;
     }
 }
 
+header .jumbotron {
+   h1 a {
+      color: $headerH1Text;
+   }
+
+   h2 {
+      color: $headerH2Text;
+   }
+}
+
 .container {
-    background-color: #f8f8f8;
+    background-color: $containerBg;
+
+    &#mainbody {
+        padding-top: 20px;
+    }
 }
 
 .headercontainer {
@@ -30,8 +46,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footercontainer {
-    background-color: #333;
-    color: #aaa;
+    background-color: $footerBg;
+    color: $footerText;
 }
 
 p, h1, h2, h3, h4, h5, h6, li, nav a {
@@ -69,11 +85,11 @@ p, li {
 p {
     strong {
         font-weight: 900;
-        color: #000;
+        color: $textColour;
     }
 
     &.date {
-        color: #aaa;
+        color: $footerText;
     }
 }
 
@@ -104,9 +120,9 @@ pre {
 
 img {
     max-width: 100%;
-    border: 1px solid #707070;
+    border: 1px solid $imgBorder;
     padding: 5px;
-    background-color: #efefef;
+    background-color: $imgBg;
     @include border-radius(4px, 4px);
 }
 
@@ -116,7 +132,7 @@ a {
 
 blockquote {
     font-style: italic;
-    border-left: 2px solid #cfcfcf;
+    border-left: 2px solid $quoteBorder;
 
     p {
         font-size: 2.2em;
@@ -126,7 +142,7 @@ blockquote {
 article.post {
 
     margin-bottom: 50px;
-    border-bottom: 1px dotted #e0e0e0;
+    border-bottom: 1px dotted $postBottom;
 
     h1 {
         white-space: pre-wrap;
@@ -135,7 +151,7 @@ article.post {
 
     h2 {
         padding-top: 0.8em;
-        border-top: 1px dotted #e0e0e0;
+        border-top: 1px dotted $postBottom;
     }
 }
 
@@ -159,6 +175,10 @@ ul.pager {
 
 div.navbar-header {
     width: 100%;
+}
+
+.navbar {
+    margin-bottom: 0;
 }
 
 a#github-image img {
@@ -187,26 +207,26 @@ p.copyright {
 
 ul.searchresults {
     display: none;
-    background-color: #f8f8f8;
+    background-color: $containerBg;
     font-size: 10px;
     list-style-type: none;
     padding-left: 0;
     overflow-y: overlay;
     z-index: 9999;
     position: absolute;
-    border: 1px solid #cfcfcf;
+    border: 1px solid $searchBorder;
 
     li {
-        border-bottom: 1px solid #cfcfcf;
+        border-bottom: 1px solid $searchBorder;
 
         a {
             padding: 5px;
             display: block;
-            color: #000000;
+            color: $textColour;
             text-decoration: none;
 
             &:hover {
-                background-color: #cfcfcf;
+                background-color: $searchBorder;
             }
         }
     }
@@ -214,7 +234,8 @@ ul.searchresults {
 
 .jumbotron {
     margin-bottom: 0;
-    background-color: #333;
+    background-color: $jumboBg;
+    color: $jumboText;
     border-radius: 0 !important;
 
     h1 {
@@ -222,7 +243,7 @@ ul.searchresults {
         line-height: 1.2em;
 
         a {
-            color: #505050;
+            color: $jumboText;
         }
     }
 
@@ -234,8 +255,8 @@ ul.searchresults {
 .linenos {
     @include user-select(none);
     float: left;
-    background-color: grey;
-    color: #d1d9e1;
+    background-color: $lineBg;
+    color: $lineColour;
     width: 30px;
     text-align: center;
     margin-right: 10px;
@@ -252,10 +273,10 @@ ul.searchresults {
 kbd {
    padding: 2px 4px;
    font-size: 90%;
-   color: #fff;
-   background-color: #333;
+   color: $kbdText;
+   background-color: $kbdColour;
    border-radius: 3px;
-   box-shadow: inset 0 -1px 0 rgba(0,0,0,.25)
+   box-shadow: inset 0 -1px 0 $shadow;
 }
 
 @media (min-width: $screen-sm-min) {

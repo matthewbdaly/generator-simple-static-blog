@@ -129,6 +129,7 @@ var TeslaGenerator = yeoman.generators.Base.extend({
             this.src.copy('_robots.txt', 'app/templates/robots.txt');
 
             // Sass
+            this.src.copy('_colours.scss', 'app/sass/_colours.scss');
             this.src.copy('_style.scss', 'app/sass/style.scss');
 
             // JavaScript
