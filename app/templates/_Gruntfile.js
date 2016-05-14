@@ -154,7 +154,7 @@ module.exports = function (grunt) {
                     'content/pages/*.markdown',
                     'content/posts/*.md',
                     'content/posts/*.markdown',
-                    'app/sass/style.scss'
+                    'app/sass/*.scss'
                 ],
                 tasks: ['default'],
                 options: {
